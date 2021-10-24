@@ -1,5 +1,10 @@
-# Obsidian HTML Tag Autocomplete
+# Obsidian HTML Tags Autocomplete
 
 ### Autocomplete HTML tags. It's as simple as that.
 
-When typing HTML tags for formatting, this plugin will automatically add the ending tag or you. For example, for subscripts in text you type `<sub>` and this plugin will add the closing `</sub>` tag for you.
+This plugin does three things:
+ 1. **Add closing tag.** When typing HTML tags for formatting, the closing tag will be suggested. For example, for subscripts in text you type `<sub>` and this plugin will add the closing `</sub>` tag for you.
+ 
+ 2. (Coming soon) **Modify matching tag.** If you modify an HTML tag, its matching tag will also be updated.
+
+ 3. (Coming soon) **Skip over tags.** When using `ctrl + ->` or `ctrl + <-` to move when next to or inside of a tag, the cursor is moved outside of the tag. 
