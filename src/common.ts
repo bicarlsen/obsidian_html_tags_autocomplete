@@ -9,6 +9,8 @@ import {
 /**
  * Gets the tag associatated with the cursor.
  * 
+ * @param include_start Whether to check if the cursor is
+ * 			in front of a tag. [Default: false]
  * @returns RegExp match relative to the line if an associated tag is found,
  * 			otherwise, return null.
  * 			An associated tag is one the cursor is in, or just outside of the closing '>'.
@@ -16,14 +18,22 @@ import {
  * 				1. '/' if the tag is a closing tag, otherwise ''
  * 				2. The name of the tag.
  */
-export function cursorTag( cursor: EditorPosition, editor: Editor ): RegExpMatchArray | null {
-
+export function cursorTag(
+	cursor: EditorPosition,
+	editor: Editor,
+	include_start: boolean = false
+): RegExpMatchArray | null {
 	const valid_tag_pattern = new RegExp( /<(\/?)([\w|\d|\-]+)>/ );
 
 	// split text at cursor
 	const line = editor.getLine( cursor.line );
-	const line_split = ( line[ cursor.ch - 1 ] === '<' ) ? cursor.ch : cursor.ch - 1;
-
+	let line_split
+	if ( include_start ) {
+		line_split = ( line[ cursor.ch ] === '<' ) ? cursor.ch + 1 : cursor.ch - 1;
+	}
+	else {
+		line_split = ( line[ cursor.ch - 1 ] === '<' ) ? cursor.ch : cursor.ch - 1;
+	}
 	const start_index = line.lastIndexOf( '<', line_split );
 	const end_index = line.indexOf( '>', line_split );
 
