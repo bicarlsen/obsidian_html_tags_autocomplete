@@ -42,7 +42,7 @@ export default class HtmlTagsAutocompleteSuggestor extends EditorSuggest<string>
 				query: `</${cursor_tag[ 2 ]}>`
 			};
 		}
-		
+
 		return null;
 	}
 
@@ -58,13 +58,20 @@ export default class HtmlTagsAutocompleteSuggestor extends EditorSuggest<string>
 	}
 
 	selectSuggestion( value: string, event: MouseEvent | KeyboardEvent ) {
-		const cursor = this.context.editor.getCursor();
+		const editor = this.context.editor;
+		const cursor = editor.getCursor();
+		const cursor_tag = cursorTag( cursor, editor );
+		if ( !cursor_tag ) {
+			// error
+			return false;
+		}
+
 		const insert_pos = {
 			line: cursor.line,
-			ch: cursor.ch
+			ch: cursor_tag.index + cursor_tag[ 0 ].length
 		};
 
-		this.context.editor.replaceRange( value, insert_pos );
-		this.context.editor.setSelection( cursor );  // place cursor between tags
+		editor.replaceRange( value, insert_pos );
+		editor.setSelection( insert_pos );  // place cursor between tags
 	}
 }

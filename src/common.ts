@@ -4,8 +4,6 @@ import {
 } from 'obsidian';
 
 
-
-
 /**
  * Gets the tag associatated with the cursor.
  * 
