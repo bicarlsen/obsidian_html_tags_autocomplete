@@ -27,7 +27,7 @@ export default class HtmlTagsAutocompleteSuggestor extends EditorSuggest<string>
 			// can't be in a tag
 			return null;
 		}
-		console.log( editor.transaction )
+
 		const cursor_tag = cursorTag( cursor, editor );
 		if ( !cursor_tag ) {
 			return null;
