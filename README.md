@@ -7,7 +7,7 @@ This plugin does three things:
  
  2. (Coming soon) **Modify matching tag.** If you modify an HTML tag, its matching tag will also be updated.
 
- 3. **Skip over tags.** When using `ctrl + ->` or `ctrl + <-` to move when next to or inside of a tag, the cursor is moved outside of the tag.
+ 3. **Skip over tags.** Skip across the entire tag when moving the cursor next to or inside of a tag.
 
  ## Commands
  
@@ -16,7 +16,7 @@ This plugin does three things:
  ### Skipping over tags
  To skip across a tag use the `Skip over tag backward` or `Skip over tag forward` command. these commands are only available when inside of or next to a tag.
  
- **Suggested hotkeys**: `Ctrl + Shift + <-`, `Ctrl + Shift + ->`
+ **Suggested hotkeys**: `Ctrl + Meta + <-`, `Ctrl + Meta + ->`
 
 
  ### Go to matching tag

@@ -42,7 +42,25 @@ export default class HtmlTagsAutocompleteSuggestor extends EditorSuggest<string>
 				query: `</${cursor_tag[ 2 ]}>`
 			};
 		}
+		else if ( !pair_tag && isOpeningTag( cursor_tag ) ) {
+			// closing tag without opening
+			return null;
+		}
+		else if ( isOpeningTag( cursor_tag ) ) {
+			// opening tag with matching close already
+			const match_pos = cursor_tag.index + cursor_tag[ 0 ].length + pair_tag.index;
+			return {
+				start: { line: cursor.line, ch: match_pos },
+				end: { line: cursor.line, ch: match_pos + pair_tag[ 0 ].length },
+				query: `</${cursor_tag[ 2 ]}>`
+			};
+		}
+		else {
+			// closing tag with matching open already
+			return null;
+		}
 
+		// error, default to nothing
 		return null;
 	}
 
