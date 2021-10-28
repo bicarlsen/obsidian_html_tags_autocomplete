@@ -65,14 +65,11 @@ export default class HtmlTagsAutocompleteSuggestor extends EditorSuggest<string>
 	}
 
 	getSuggestions( context: EditorSuggestContext ): string[] | Promise<string[]> {
-		return [ `${context.query}` ];
+		return [ context.query ];
 	}
 
 	renderSuggestion( value: string, el: HTMLElement ) {
-		const suggestion = document.createElement( 'p' );
-		suggestion.innerText = value;
-
-		el.appendChild( suggestion  );
+		el.setText( value );
 	}
 
 	selectSuggestion( value: string, event: MouseEvent | KeyboardEvent ) {

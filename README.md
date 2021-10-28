@@ -2,12 +2,15 @@
 
 ### Autocomplete HTML tags. It's as simple as that.
 
+![Autoccomplete example](autocomplete_example.png)
+
 This plugin does three things:
  1. **Add closing tag.** When typing HTML tags for formatting, the closing tag will be suggested. For example, for subscripts in text you type `<sub>` and this plugin will add the closing `</sub>` tag for you.
  
- 2. (Coming soon) **Modify matching tag.** If you modify an HTML tag, its matching tag will also be updated.
+ 2. **Skip over tags.** Skip across the entire tag when moving the cursor next to or inside of a tag.
+ 
+ 3. (Coming soon) **Modify matching tag.** If you modify an HTML tag, its matching tag will also be updated.
 
- 3. **Skip over tags.** Skip across the entire tag when moving the cursor next to or inside of a tag.
 
  ## Commands
  
