@@ -1,7 +1,7 @@
 {
 	"id": "obsidian-html-tags-autocomplete",
 	"name": "HTML Tags Autocomplete",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"minAppVersion": "0.15.6",
 	"description": "Autocomplete HTML tags.",
 	"author": "Brian Carlsen",

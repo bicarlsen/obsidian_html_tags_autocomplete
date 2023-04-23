@@ -14,6 +14,8 @@ import {
 	isOpeningTag
 } from './common';
 
+const SELF_CLOSING_TAGS = [ "br", "hr" ];
+
 
 export default class HtmlTagsAutocompleteSuggestor extends EditorSuggest<string> {
 
@@ -30,6 +32,10 @@ export default class HtmlTagsAutocompleteSuggestor extends EditorSuggest<string>
 
 		const cursor_tag = cursorTag( cursor, editor );
 		if ( !cursor_tag ) {
+			return null;
+		}
+
+		if SELF_CLOSING_TAGS.includes(cursor_tag[ 2 ]) {
 			return null;
 		}
 
