@@ -35,7 +35,7 @@ export default class HtmlTagsAutocompleteSuggestor extends EditorSuggest<string>
 			return null;
 		}
 
-		if SELF_CLOSING_TAGS.includes(cursor_tag[ 2 ]) {
+		if ( SELF_CLOSING_TAGS.includes(cursor_tag[ 2 ]) ) {
 			return null;
 		}
 
